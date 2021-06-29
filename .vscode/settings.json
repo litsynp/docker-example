@@ -1,0 +1,12 @@
+{
+  "python.pythonPath": "backend/venv/bin/python3",
+  "python.autoComplete.extraPaths": ["./backend"],
+  "python.analysis.extraPaths": ["./backend"],
+  "python.languageServer": "Pylance",
+  "python.venvPath": "${workspaceFolder}/backend/venv",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#7D7D7D",
+    "titleBar.activeBackground": "#A3A3A3",
+    "titleBar.activeForeground": "#FBFBFB"
+  }
+}
