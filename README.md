@@ -12,7 +12,7 @@
 
 - requirements.txt에 필요한 모듈을 담아둔다
 
-- frontend에서 `npm i`를 해서 모듈을 최신화한다
+- frontend에서 `yarn`을 해서 모듈을 최신화한다
 
 - 프로젝트 루트 디렉토리에서 `docker compose up --build`를 한다
 
