@@ -34,7 +34,7 @@ services:
   frontend:
     build:
       context: ./frontend
-    command: ["yarn", "start"]
+    command: [ "yarn", "start" ]
     ports:
       - 80:3000
     volumes:
@@ -43,7 +43,8 @@ services:
     environment:
       - CI=true
       - CHOKIDAR_USEPOLLING=true
+      - REACT_APP_BACKEND_URL=http://localhost:8000
     tty: true
 
 volumes:
-  postgres_data_dev:
+  postgres_data_dev: null
