@@ -6,4 +6,5 @@ app_name = 'todos'
 
 router = DefaultRouter()
 router.register(r'', TodoViewSet)
+
 urlpatterns = [] + router.urls
