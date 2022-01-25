@@ -18,6 +18,8 @@
 
 - 프로젝트 루트 디렉토리에서 `docker compose up --build`를 한다
 
+- 완전히 올라간 후 다른 터미널을 하나 더 열어서 `docker-compose exec backend python manage.py migrate` 를 입력하여 데이터 마이그레이션을 진행한다
+
 - 서버를 내릴 땐 `docker compose down`을 하고, 삭제할 때는 `docker compose down -v`를 한다
 
 - 다시 올릴 땐 `docker compose up`을 한다 (삭제 후에 돌릴 땐 `--build` 를 붙여준다 (처음에만 빌드!))
