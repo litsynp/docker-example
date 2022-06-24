@@ -1,33 +1,70 @@
-# docker-example
+# Docker Example
+
+**English** | [한국어](https://github.com/litsynp/docker-example/blob/main/README.ko.md)
+
+This is a repository to demonstrate how to develop a full-stack web application using Docker.
+
+You can simply run the application with [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/).
+
+The application implemented is a todo app like a [Microsoft To Do](https://todo.microsoft.com/).
 
 ## Description
 
-- backend: Django (`django-admin startproject backend`으로 생성)
+- Back-end: Django (Created using `django-admin startproject backend`)
 
-- frontend: React.js (`npx create-react-app frontend`으로 생성)
+- Front-end: React (Created using `npx create-react-app frontend`)
 
-- db: PostgreSQL 사용
+- Database: [PostgreSQL](https://www.postgresql.org/)
 
-## 사용법
+## Installation
 
-- requirements.txt에 필요한 모듈을 담아둔다
+- Clone the repository using this command.
 
-- frontend submodule을 clone하여 받는다
+  ```sh
+  $ git clone --recursive https://github.com/litsynp/docker-example.git
+  ```
 
-- frontend에서 `yarn`을 해서 모듈을 최신화한다
+  - If you missed `--recursive` option, fetch the frontend submodule using `git clone`.
 
-- 프로젝트 루트 디렉토리에서 `docker compose up --build`를 한다
+## How To
 
-- 완전히 올라간 후 다른 터미널을 하나 더 열어서 `docker-compose exec backend python manage.py migrate` 를 입력하여 데이터 마이그레이션을 진행한다
+- Put all the python modules in `requirements.txt`.
 
-- 서버를 내릴 땐 `docker compose down`을 하고, 삭제할 때는 `docker compose down -v`를 한다
+- Run `yarn` in `frontend` directory to fetch yarn modules.
 
-- 다시 올릴 땐 `docker compose up`을 한다 (삭제 후에 돌릴 땐 `--build` 를 붙여준다 (처음에만 빌드!))
+  ```sh
+  $ cd frontend
+  $ yarn
+  ```
 
-- production build에는 NGINX가 포함되어 있음
+- Run `docker compose up --build` in the root directory. You will create front-end, back-end and database Docker containers.
 
-- production build로 실행하려면 위의 명령어들 (`docker compose`) 뒤에 `-f docker-compose.prod.yml` 명령어를 붙여서 사용하면 된다 (e.g., `docker compose -f docker-compose.prod.yml up`)
+- When the docker containers are all up and running, open another terminal and run `docker-compose exec backend python manage.py migrate` to proceed with data migration. If you skip this, you will encounter an error in Django backend container later, because the DB has not been initialized.
 
-## env 파일 관리
+## Stop/Remove the servers and containers
 
-- settings 디렉토리에 dev, prod 버전의 env 파일이 존재한다
+- `docker compose down` for just stopping the server.
+
+  - If you want to run the server again after stopping it, run `docker compose up` again.
+
+- `docker compose down -v` to stop and **remove** the server. This will remove all the volumes of the containers.
+
+  - If you want to run the server again after stopping and removing it, run `docker compose up --build`. Build only when you are running the server for the first time.
+
+## Notes
+
+- The production build `prod` includes NGINX as a load balancer.
+
+- To run as production build, append `-f docker-compose.prod.yml` after `docker compose` for all the commands above.
+
+  - e.g., `docker compose -f docker-compose.prod.yml up`
+
+- You can include `.vscode`, which includes workspace settings for [Visual Studio Code](https://code.visualstudio.com/), to `.gitignore` as well. It is included as an example here.
+
+## Secret Management - `.env`
+
+`.env` files are for keeping secrets and credentials that should not be exposed to Git repository.
+
+You must inlcude them to `.gitignore` so that the Git repository doesn't include it.
+
+- There are sample `.env` files of `dev` and `prod` build in `settings` directory.
