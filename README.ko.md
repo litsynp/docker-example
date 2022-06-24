@@ -2,6 +2,8 @@
 
 [English](https://github.com/litsynp/docker-example/blob/main/README.md) | **한국어**
 
+![Web App Screenshot](https://user-images.githubusercontent.com/42485462/175573053-a9292722-8c12-492a-b60c-14cb4d12fab5.png)
+
 Docker를 이용한 간단한 full stack 개발을 위해 만들어진 예시용 repository 입니다.
 
 [Docker](https://www.docker.com/)와 [Docker Compose](https://docs.docker.com/compose/)를 이용해 웹 애플리케이션을 간단하게 실행해볼 수 있습니다.
