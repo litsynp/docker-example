@@ -12,9 +12,9 @@ The application implemented is a todo app like a [Microsoft To Do](https://todo.
 
 ## Description
 
-- Back-end: Django (Created using `django-admin startproject backend`)
+- Back-end: [Django](https://www.djangoproject.com/) - [Django REST Framework](https://www.django-rest-framework.org/) (Created using `django-admin startproject backend`)
 
-- Front-end: React (Created using `npx create-react-app frontend`)
+- Front-end: [React](https://reactjs.org/) - [Create-React-App](https://create-react-app.dev/) (Created using `npx create-react-app frontend`)
 
 - Database: [PostgreSQL](https://www.postgresql.org/)
 
@@ -28,7 +28,7 @@ The application implemented is a todo app like a [Microsoft To Do](https://todo.
 
   - If you missed `--recursive` option, fetch the frontend submodule using `git clone`.
 
-## How To
+## How to
 
 - Put all the python modules in `requirements.txt`.
 
