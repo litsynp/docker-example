@@ -40,7 +40,7 @@ services:
       args:
         API_URL: "*"
     environment:
-      - REACT_APP_BACKEND_URL=http://localhost:8000
+      - REACT_APP_BACKEND_URL=http://localhost
     volumes:
       - ./frontend/:/frontend
       - build_folder:/frontend/build
