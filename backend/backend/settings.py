@@ -160,7 +160,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ENABLE_LOGGING = False
+ENABLE_LOGGING = True
 
 if ENABLE_LOGGING:
     # Enable SQL queries logging
