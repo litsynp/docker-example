@@ -1,3 +1,6 @@
 venv
 # .env.db
 # .env.prod
+
+.DS_Store
+.idea

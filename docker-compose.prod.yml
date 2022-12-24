@@ -62,7 +62,7 @@ services:
 
 # 컨테이너 내려도 데이터 유지되도록 함
 volumes:
-  postgres_data: null
-  static_volume: null
-  media_volume: null
-  build_folder: null
+  postgres_data:
+  static_volume:
+  media_volume:
+  build_folder:
