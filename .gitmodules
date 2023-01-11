@@ -1,3 +1,6 @@
 [submodule "frontend"]
 	path = frontend
 	url = https://github.com/litsynp/react-todo-example.git
+[submodule "logging-example"]
+	path = logging-example
+	url = https://github.com/0BVer/logging-example.git
