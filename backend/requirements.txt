@@ -9,3 +9,4 @@ pycodestyle==2.7.0
 pytz==2021.1
 sqlparse==0.4.1
 toml==0.10.2
+python-logstash==0.4.8
