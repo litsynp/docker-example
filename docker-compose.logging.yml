@@ -33,6 +33,7 @@ services:
       - ./logging-example/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,Z
       - ./logging-example/logstash/pipeline:/usr/share/logstash/pipeline:ro,Z
     ports:
+      - 5959:5959
       - 5044:5044
       - 50000:50000/tcp
       - 50000:50000/udp
