@@ -181,15 +181,19 @@ if ENABLE_LOGGING:
                 'level': 'INFO',
                 'class': 'logstash.TCPLogstashHandler',
                 'host': 'logstash',   # IP/name of our Logstash EC2 instance
-                'port': 5000,
+                'port': 5959,
                 'version': 1,
                 'message_type': 'django',
                 'tags': ['django'],
             },
         },
         'loggers': {
+            'django': {
+                'level': 'INFO',
+                'handlers': ['console', 'logstash'],
+            },
             'django.db.backends': {
-                'level': 'DEBUG',
+                'level': 'INFO',
                 'handlers': ['console', 'logstash'],
             }
         },
