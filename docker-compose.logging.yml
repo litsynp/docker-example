@@ -33,7 +33,6 @@ services:
       - ./logging-example/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,Z
       - ./logging-example/logstash/pipeline:/usr/share/logstash/pipeline:ro,Z
     ports:
-      - 5959:5959
       - 5044:5044
       - 50000:50000/tcp
       - 50000:50000/udp
@@ -59,6 +58,20 @@ services:
     depends_on:
       - elasticsearch
     restart: unless-stopped
+
+  filebeat:
+    build:
+      context: ./logging-example/extensions/filebeat
+      args:
+        ELASTIC_VERSION: 8.5.2
+    entrypoint: "filebeat -e -strict.perms=false"
+    volumes:
+      - ./logging-example/extensions/filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./nginx/log:/var/log/nginx
+    depends_on:
+      - logstash
+      - elasticsearch
+      - kibana
 
 volumes:
   elasticsearch:
