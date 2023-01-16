@@ -177,24 +177,11 @@ if ENABLE_LOGGING:
                 'filters': ['require_debug_true'],
                 'class': 'logging.StreamHandler',
             },
-            'logstash': {
-                'level': 'INFO',
-                'class': 'logstash.TCPLogstashHandler',
-                'host': 'logstash',   # IP/name of our Logstash EC2 instance
-                'port': 5959,
-                'version': 1,
-                'message_type': 'django',
-                'tags': ['django'],
-            },
         },
         'loggers': {
-            'django': {
-                'level': 'INFO',
-                'handlers': ['console', 'logstash'],
-            },
             'django.db.backends': {
                 'level': 'INFO',
-                'handlers': ['console', 'logstash'],
+                'handlers': ['console'],
             }
         },
     }
