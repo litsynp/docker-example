@@ -56,6 +56,8 @@ services:
       - static_volume:/backend/staticfiles
       - media_volume:/backend/mediafiles
       - build_folder:/var/www/frontend
+      - ./nginx/log:/var/log/nginx
+
     depends_on:
       - backend
       - frontend
