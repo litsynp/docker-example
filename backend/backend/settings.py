@@ -176,12 +176,12 @@ if ENABLE_LOGGING:
                 'level': 'DEBUG',
                 'filters': ['require_debug_true'],
                 'class': 'logging.StreamHandler',
-            },
+            }
         },
         'loggers': {
             'django.db.backends': {
-                'level': 'INFO',
+                'level': 'DEBUG',
                 'handlers': ['console'],
             }
-        },
+        }
     }
