@@ -1,9 +1,14 @@
+# docker-compose.prod 와 함께 실행 해야 합니다. # need to run with docker-compose.prod
+# docker compose -f docker-compose.prod.yml -f docker-compose.logging.yml up --build
+
+# changeme 로 설정된 임시 패스워드를 변경하여 사용하시길 바랍니다. # need to change temp password 'changeme'
+
 version: '3.7'
 
 services:
   elasticsearch:
     build:
-      context: ./logging-example/elasticsearch/
+      context: ./logging-example/elasticsearch
       args:
         ELASTIC_VERSION: 8.5.2
     volumes:
@@ -26,7 +31,7 @@ services:
 
   logstash:
     build:
-      context: ./logging-example/logstash/
+      context: ./logging-example/logstash
       args:
         ELASTIC_VERSION: 8.5.2
     volumes:
@@ -46,7 +51,7 @@ services:
 
   kibana:
     build:
-      context: ./logging-example/kibana/
+      context: ./logging-example/kibana
       args:
         ELASTIC_VERSION: 8.5.2
     volumes:
@@ -61,13 +66,13 @@ services:
 
   filebeat:
     build:
-      context: ./logging-example/extensions/filebeat
+      context: ./logging-example/filebeat
       args:
         ELASTIC_VERSION: 8.5.2
     entrypoint: "filebeat -e -strict.perms=false"
     volumes:
-      - ./logging-example/extensions/filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml
-      - ./nginx/log:/var/log/nginx
+      - ./logging-example/filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./nginx/log:/var/log/nginx # nginx log path (require same option on nginx container)
     depends_on:
       - logstash
       - elasticsearch
