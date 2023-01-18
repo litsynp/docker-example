@@ -73,6 +73,8 @@ Docker를 이용한 간단한 full stack 개발을 위해 만들어진 예시용
 
 ## ELK 로깅
 
+![es-index-management-screenshot](https://user-images.githubusercontent.com/42485462/213172320-be589d5e-81c0-4c2f-bdcd-5031d45cd834.png)
+
 - logging-example 서브 모듈을 사용하여 **배포 버전**에서 로깅이 가능합니다.
 - *단일 compose 파일 실행시 동작하지 않습니다.*
 
